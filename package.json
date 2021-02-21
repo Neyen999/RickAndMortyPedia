@@ -1,0 +1,25 @@
+{
+  "name": "rickandmortypedia",
+  "version": "1.0.0",
+  "description": "Rick and Morty SPA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neyen999/RickAndMortyPedia.git"
+  },
+  "keywords": [
+    "JS",
+    "WEBPACK",
+    "VANILLA",
+    "JS"
+  ],
+  "author": "Neyen Ezequiel Marinelli <neyen_gt@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neyen999/RickAndMortyPedia/issues"
+  },
+  "homepage": "https://github.com/Neyen999/RickAndMortyPedia#readme"
+}
