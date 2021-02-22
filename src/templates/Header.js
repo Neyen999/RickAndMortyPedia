@@ -7,9 +7,23 @@ const Header = () => {
           </h1>
       </div>
       <div class="Header-nav">
-          <a href="#/about/">
-            About
-          </a>
+          <ul>
+            <li>
+              <a href="/">
+               Inicio
+              </a>
+            </li>
+            <li>
+              <a href="#/contact/">
+               Contacto
+              </a>
+            </li>
+            <li>
+              <a href="#/about/">
+               Acerca De
+              </a>
+            </li>
+          </ul>
       </div>
   </div>
     `;
