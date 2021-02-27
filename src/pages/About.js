@@ -7,23 +7,23 @@ const About = () => {
                 <ul class="Project-description_content_ul">
                   <li>
                     <span>Html</span>
-                    <img src="images/html.png" alt="Html Logo">  
+                    <img src="https://i.postimg.cc/QCh449f8/html.png" alt="Html Logo">  
                   </li>
                   <li>
                     <span>Css</span>
-                    <img src="images/css.png" alt="Css Logo">
+                    <img src="https://i.postimg.cc/zBmPhPWR/css.png" alt="Css Logo">
                   </li>
                   <li>
                     <span>Javascript Vanilla</span>
-                    <img src="images/js.png" alt="Javascript Logo">
+                    <img src="https://i.postimg.cc/26497FF9/js.png" alt="Javascript Logo">
                   </li>
                   <li>
                     <span>Webpack</span>
-                    <img src="images/webpack.png" alt="Webpack Logo">
+                    <img src="https://i.postimg.cc/NFDNWsn1/webpack.png" alt="Webpack Logo">
                   </li>
                   <li>
                     <span>Babel</span>
-                    <img src="images/babel.png" alt="Babel Logo">
+                    <img src="https://i.postimg.cc/nL9PCtsJ/babel.png" alt="Babel Logo">
                   </li>
                 </ul>
                 <p class="About-description">Para comenzar, este es mi primer proyecto, hecho totalmente con las herramientas mencionadas arriba, es un proyecto simple, pero un proyecto al fin. El mayor reto que me encontre con este fue manejar Webpack 100% por cuenta propia, dado que ciertas características de Webpack funcionan con versiones específicas. </p>
