@@ -36,6 +36,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: [
+          {
+            loader: "file-loader", // configuro para aceptar las fuentes
+          },
+        ],
+      },
     ],
   },
   plugins: [

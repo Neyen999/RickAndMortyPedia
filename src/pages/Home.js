@@ -3,11 +3,12 @@ import getData from "../utils/getData";
 const Home = async () => {
   const characters = await getData();
   const view = `
-  <div class="Character">
+  <h2 class="limits titles">Clickea sobre cualquier personaje para obtener información relacionada a él</h2>
+  <div class="Character limits ">
     ${characters.results
       .map(
         (character) => `
-    <article class="Character--item">
+    <article class="Character-item">
     <a href="#/${character.id}/">
       <img src="${character.image}" alt="${character.name}">
       <h2>${character.name}<h2>
