@@ -7,7 +7,7 @@ const Character = async () => {
   const view = `
     <div class="Character-inner limits">
       <article class="Character-card-one">
-        <img src="${character.image}" alt="${character.name}">
+        <img src="${character.image}" loading="lazy" alt="${character.name}">
         <h2>${character.name}</h2>
       </article>
       <article class="Character-card-two">

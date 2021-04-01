@@ -33,6 +33,42 @@ html {
   flex-direction: column;
   padding: 20px 10px;
 }
+
+.Header-main input {
+  outline: none;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.Header-main input[type="text"] {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 0px 20px 2px rgb(39, 39, 39);
+}
+
+.Header-main input[type="submit"] {
+  width: 150px;
+  background-color:#ffa600;
+	border-radius:28px;
+  border: none;
+	display:inline-block;
+	cursor:pointer;
+	color:rgb(233, 233, 233);
+	font-family:"Open sans", sans-serif;
+  font-weight: 700;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+  box-shadow: 0px 2px 10px 1px rgb(66, 65, 65);
+}
+
+.Header-main input[type="submit"]:hover {
+  background-color:#f0b922;
+}
+
 .limits {
   max-width: 1000px;
   margin: 0 auto 40px;
@@ -66,11 +102,12 @@ html {
   font-size: 1.6rem;
   margin: 20px auto;
 }
-.Character {
+.Characters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1.5rem;
   grid-row-gap: 1.5em;
+  justify-items: center;
   /* Responsive Way*/
   /* grid-template-columns: repeat(3, 1fr); */
 }
@@ -85,6 +122,15 @@ html {
   animation-duration: 2s;
   animation-name: fade;
 }
+
+.Character-inner .searched {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--blanco);
+}
+
 .Character-item {
   animation-duration: 2s;
   animation-name: fade;
@@ -104,11 +150,7 @@ html {
   text-decoration: none;
   text-shadow: 2px 1px 1px black;
 }
-.Character-item a:focus {
-  color: var(--verde);
-  transition-duration: 300ms;
-  text-shadow: -1px 1px 6px #3d1c1c;
-}
+
 .Character-item a img:hover {
   transition-duration: 300ms;
   box-shadow: 0px 2px 27px 2px rgba(0, 0, 0, 0.75);
@@ -183,8 +225,8 @@ html {
   text-shadow: 2px 1px 1px black;
 }
 
-@media (max-width: 800px) {
-  .Character-inner {
+@media (max-width: 768px) {
+  .Character-inner, .Character-inner .searched {
     flex-wrap: wrap;
   }
   .Character-card-one,
