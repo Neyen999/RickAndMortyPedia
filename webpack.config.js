@@ -8,9 +8,10 @@ module.exports = {
     //Donde se envía el proyecto estructurado y compilado listo para producción.
     path: path.resolve(__dirname, "dist"), //Creamos el lugar dónde se exportará el proyecto.
     filename: "main.js", //Este es el nombre del archivo final para producción.
+    publicPath: "/"
   },
   resolve: {
-    extensions: [".js"], //Extensiones que vamos a utilizar.
+    extensions: [".js", ".jsx"], //Extensiones que vamos a utilizar.
   },
   module: {
     //Se crea un modulo con las reglas necesarias que vamos a utilizar.
@@ -22,39 +23,39 @@ module.exports = {
         exclude: /node_modules/, //Excluimos la carpeta de node modules
         use: {
           loader: "babel-loader", //Utilizar un loader como configuración establecida.
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
         },
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"], // Lector del CSS
+        test: /\.s?css$/i,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: "file-loader", // Nos permite soportar las imagenes
-          },
+            loader: "file-loader",
+          }
         ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: [
-          {
-            loader: "file-loader", // configuro para aceptar las fuentes
-          },
-        ],
-      },
-    ],
+      },  
+    ],  
   },
   plugins: [
     //Establecemos los plugins que vamos a utilizar
     new HtmlWebpackPlugin(
-      //Permite trabajar con los archivos HTML
       {
-        inject: true, //Cómo vamos a inyectar un valor a un archivo HTML.
         template: "./public/index.html", //Dirección donde se encuentra el template principal
         filename: "./index.html", //El nombre que tendrá el archivo
       }
     ),
   ],
+  devServer: {
+    compress: true,
+    port: 8080,
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname),
+    publicPath: "/"
+  }
 };

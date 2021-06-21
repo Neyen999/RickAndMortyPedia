@@ -1,0 +1,42 @@
+@include animation(fade);
+
+.Characters__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  margin-bottom: 40px;
+  & a {
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
+}
+
+.load__more {
+  padding: 30px;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3bff66;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  animation: 2s fade;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.two-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.one-column {
+  grid-template-columns: 1fr;
+}

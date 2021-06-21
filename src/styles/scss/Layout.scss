@@ -1,0 +1,15 @@
+.bg-white {
+  background-color: rgb(107, 180, 240);
+  color: #333;
+  transition: all 200ms ease-in-out;
+}
+
+.bg-black {
+  background-color: #333;
+  color: white;
+  transition: all 200ms ease-in-out;
+}
+
+.main__container {
+  min-height: 100vh;
+}

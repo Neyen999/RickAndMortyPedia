@@ -1,45 +1,48 @@
-const poke_container = document.getElementById("character");
-const pokemon_number = 150;
+import React from 'react'
+import { useState, useCallback, useMemo, useRef, useContext } from 'react'
+import { useGetCharacters } from '../hooks/useGetCharacters';
+import { Link } from "react-router-dom";
+import { Characters } from './Characters';
+import { Search } from '../components/Search';
+// import "../styles/Home.css"
+import { ThemeContext } from '../context/ThemeContext';
 
+export const Home = () => {
+  const [nextPage, setNextPage] = useState(1);
 
-const charsCount = async () => {
-  for (let i = 1; i <= pokemon_number; i++) {
-    await getChar(i);
-  }
-};
+  const API = `https://rickandmortyapi.com/api/character/?page=${nextPage}`;
+  const { characters } = useGetCharacters(API);
+  
+  const searchInput = useRef(null);
+  const [search, setSearch] = useState("");
 
-const getChar = async id => {
-  const url = `https://rickandmortyapi.com/api/character/${id}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  Home(data);
-}
-charsCount();
+  const handleSearch = useCallback(() => {
+    setSearch(searchInput.current.value)
+  }, []);
 
+  const { theme } = useContext(ThemeContext)
 
-const Home = data => {
-  const charEl = document.createElement("div");
-  charEl.classList.add("Character--inner");
+  const filteredUsers = useMemo(() => characters.filter((user) => {
+    return user.name.toLowerCase().includes(search.toLowerCase())
+    }), [characters, search]
+  );
 
-  const charInnerHTML = `
-  <article class="Character-item">
-    <a href="#/${data.id}/">
-      <div class="img-container">
-        <img src="https://rickandmortyapi.com/api/character/avatar/${data.id}.jpeg" loading="lazy" alt="${data.name}"/>
+  return (
+    <div className="container">
+      <Search searchInput={searchInput} search={search} handleSearch={handleSearch}/>
+      <div className={`Characters__container ${filteredUsers.length === 3 && "three-columns"} ${filteredUsers.length === 2 && "two-columns"} ${filteredUsers.length === 1 && "one-column"}`}>
+      {
+        filteredUsers.map((character) =>
+        <Link className={theme} key={character.id} to={`/${character.id}`}>
+          <Characters character={character}/>
+        </Link>)
+      }
       </div>
-      <div class="info">
-        <span class="number">#${data.id.toString().padStart(3, "0")}</span>
-        <h2 class="name">${data.name}</h2>
-      </div>   
-      ${data.name}
-    </a>
-  </article>
-  `;
 
-  charEl.innerHTML = charInnerHTML;
+      {
+        search === "" && <button className="load__more" type="button" onClick={() => setNextPage(nextPage + 1)}>Load More</button>
+      }
 
-  poke_container.appendChild(charEl)
-
+    </div>
+  )
 }
-export default Home;
-// https://rickandmortyapi.com/api/character/avatar/2.jpeg;
